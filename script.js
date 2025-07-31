@@ -12,6 +12,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = usernameInput.value.trim();
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
+
+
+        let isValid = true
+        let messages = []
+
+        if (username.length < 3) {
+            isValid = false
+            messages.push('Username must be at least 3 characters long')
+        };
+
+        const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+        if (!emailRegex.test(email)) {
+            isValid=false
+            messages.push('Please enter a valid email address')
+        };
+
+        if(password.length < 8) {
+            isValid = false
+            messages.push('Password must be at least 8 characters long')
+        }
 });
 
 });
